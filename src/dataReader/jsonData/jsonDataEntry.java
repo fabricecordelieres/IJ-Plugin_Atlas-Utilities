@@ -74,7 +74,7 @@ public class jsonDataEntry implements Comparable<jsonDataEntry>{
 	 * Performs the translation from the input JSON data to match the fields provided by the structure_tree_safe csv files
 	 */
 	public void adaptAllFields() {
-		parent_structure_id=name.equals("root")?"":""+structure_id_path[structure_id_path.length-2];
+		parent_structure_id=name.toLowerCase().equals("root")?"":""+structure_id_path[structure_id_path.length-2];
 		depth=structure_id_path.length-1;
 		structure_id_path_String="/"+IntStream.of(structure_id_path).mapToObj(i -> String.valueOf(i)).collect(Collectors.joining("/"))+"/";
 		
